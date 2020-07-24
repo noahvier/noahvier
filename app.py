@@ -10,3 +10,14 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 driver.get("http://www.google.com/")
 print(driver.title)
+
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    render_template('index.html')
+
+if __name__ == '__main__':
+    app.run()
